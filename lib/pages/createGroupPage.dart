@@ -1,14 +1,23 @@
+import 'package:app/pages/components/dropdown.dart';
+import 'package:app/pages/components/myTextField.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:lustudies/components/dropdown.dart';
-import 'package:lustudies/components/mytextfield.dart';
 
-class Creategroup extends StatelessWidget {
+class CreateGroupPage extends StatefulWidget {
+  const CreateGroupPage({super.key});
+
+  @override
+  State<CreateGroupPage> createState() => _CreategroupPageState();
+}
+
+class _CreategroupPageState extends State<CreateGroupPage> {
   final TextEditingController GroupName = TextEditingController();
-  final TextEditingController GroupID = TextEditingController();
-  final TextEditingController Major = TextEditingController();
-  final TextEditingController Rule = TextEditingController();
 
-  Creategroup({super.key});
+  final TextEditingController GroupID = TextEditingController();
+
+  final TextEditingController Major = TextEditingController();
+
+  final TextEditingController Rule = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +26,7 @@ class Creategroup extends StatelessWidget {
       child: Scaffold(
         backgroundColor: const Color(0xFFDAE7FA),
         appBar: AppBar(
-          backgroundColor: const Color(0xFF6D90FF),
+          backgroundColor: const Color.fromARGB(255, 90, 128, 255),
           title: const Text(
             'Create Group',
             style: TextStyle(
@@ -28,10 +37,12 @@ class Creategroup extends StatelessWidget {
               fontWeight: FontWeight.normal,
             ),
           ),
-          leading: const Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-            size: 24,
+          leading: IconButton(
+            icon: const Icon(
+              FluentIcons.ios_arrow_ltr_24_regular,
+              color: Colors.white,
+            ),
+            onPressed: () => Navigator.pushNamed(context, '/home'),
           ),
         ),
         body: SingleChildScrollView(
@@ -41,14 +52,21 @@ class Creategroup extends StatelessWidget {
                 height: 50,
               ),
 
-              const Icon(
-                Icons.person,
-                color: Color.fromARGB(255, 70, 108, 235),
-                size: 130,
+              // const Icon(
+              //   Icons.person,
+              //   color: Color.fromARGB(255, 70, 108, 235),
+              //   size: 130,
+              // ),
+              Image.asset(
+                "lib/images/account.png",
+                height: 150, 
+                width: 150,
+                color: const Color.fromARGB(255, 121, 163, 226),
+                fit: BoxFit.cover, 
               ),
 
               const SizedBox(
-                height: 20,
+                height: 25,
               ),
 
               //* GroupName
@@ -89,7 +107,7 @@ class Creategroup extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 25.0, vertical: 25),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/homepage');
+                    Navigator.pushNamed(context, '/home');
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 70, 108, 235),

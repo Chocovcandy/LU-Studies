@@ -47,10 +47,16 @@ class _MajorDropdownState extends State<MajorDropdown> {
           fillColor: const Color.fromARGB(255, 238, 245, 255),
           filled: true,
           hintText: "Major",
-        ),
-        icon: Icon(
-          Icons.keyboard_arrow_down_rounded,
-          color: Theme.of(context).colorScheme.onSurfaceVariant,
+          suffixIcon: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(
+              "lib/images/down-arrow.png",
+              height: 16,
+              width: 16,
+              color: Colors.black,
+              fit: BoxFit.cover,
+            ),
+          ),
         ),
         dropdownColor: Theme.of(context).colorScheme.surface,
       ),
